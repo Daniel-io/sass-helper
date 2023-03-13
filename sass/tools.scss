@@ -1,0 +1,77 @@
+/* ==========================================================================
+   #MQ
+   ========================================================================== */
+
+/**
+* Pre-configuration for Sass MQ.
+* $breakpoint argument options 
+*
+* xs..........30em - 480px
+* sm..........45em - 720px
+* md..........64em - 1024px
+* lg..........75em - 1200px
+*
+*/
+
+/**
+{# FUTURE BREAKPOINTS #} 
+{% set phone_large = '22.5em' %}    {# 360px #} 
+{% set tablet = '37.5em' %}         {# 600px #} 
+{% set tablet_large = '56.25em' %}  {# 900px #} 
+{% set desktop = '68.75em' %}       {# 1100px #} 
+{% set desktop_large = '112.5em' %} {# 1800px #} 
+{% set desktop_larger = '150em' %}  {# 2400px #} 
+*/
+
+$breakpoints: (
+  phone-lg: --phone-lg,
+  tablet: --tablet,
+  tablet-lg: --tablet-lg,
+  desktop: --desktop,
+  desktop-lg: --desktop-lg,
+  desktop-lgr: --desktop-lgr,
+);
+
+@mixin mq($breakpoint) {
+  @if $breakpoint == phone-lg {
+    // Phone large - 22.5em - 360px
+    @media only screen and (min-width: 22.5em) {
+      @content;
+    }
+  }
+
+  // Tablet - 37.5em - 600px
+  @if $breakpoint == tablet {
+    @media only screen and (min-width: 37.5em) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == tablet-lg {
+    // Tablet large - 56.25em - 900px
+    @media only screen and (min-width: 56.25em) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == desktop {
+    // Desktop - 68.75em - 1100px
+    @media only screen and (min-width: 68.75em) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == desktop-lg {
+    // Desktop-large - 112.5em - 1800px
+    @media only screen and (min-width: 112.5em) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == desktop-lgr {
+    // Desktop-larger - 150em - 2400px
+    @media only screen and (min-width: 150em) {
+      @content;
+    }
+  }
+}
